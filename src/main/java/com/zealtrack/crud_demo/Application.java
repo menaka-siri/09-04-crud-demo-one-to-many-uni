@@ -26,35 +26,7 @@ public class Application {
     public CommandLineRunner commandLineRunner(AppDAO appDAO) {
         return runner -> {
             System.out.println("Hi, Mom");
-            // one-to-one
-//          createInstructor(appDAO);
-//			findInstructor(appDAO);
-//			deleteInstructor(appDAO);
 
-//			findInstructorDetail(appDAO);
-
-            //one-to-one bi-directional
-//			deleteInstructorDetail(appDAO);
-
-            // one-to-many
-//            createInstrctorWithCourses(appDAO);
-
-            // one-to-many lazy loading
-//            findInstructorWithCourses(appDAO);
-
-            // with LazyInitializationException fix
-//            findCoursesForInstructor(appDAO);
-
-            // with JOIN FETCH
-//            findInstructorWithCoursesJoinFetch(appDAO);
-
-            // update instructor
-//            updateInstructor(appDAO);
-
-            // update course
-//            updateCourse(appDAO);
-
-            deleteCourse(appDAO);
         };
     }
 
