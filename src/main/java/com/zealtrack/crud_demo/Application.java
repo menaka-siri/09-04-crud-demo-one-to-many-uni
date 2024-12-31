@@ -4,6 +4,7 @@ import com.zealtrack.crud_demo.dao.AppDAO;
 import com.zealtrack.crud_demo.entity.Course;
 import com.zealtrack.crud_demo.entity.Instructor;
 import com.zealtrack.crud_demo.entity.InstructorDetail;
+import com.zealtrack.crud_demo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,7 +28,26 @@ public class Application {
         return runner -> {
             System.out.println("Hi, Mom");
 
+            createCourseAndReviews(appDAO);
+
         };
+    }
+
+    private void createCourseAndReviews(AppDAO appDAO) {
+
+        Course tempCourse = new Course("Pacman - How to score one million points");
+
+        tempCourse.addReview(new Review("Great course ... loved it!"));
+        tempCourse.addReview(new Review("Cool course ... job well done!"));
+        tempCourse.addReview(new Review("What a dumb course, you are an idiot!"));
+
+        System.out.println("Saving the course");
+        System.out.println(tempCourse);
+        System.out.println(tempCourse.getReviews());
+
+        appDAO.saveCourse(tempCourse);
+
+        System.out.println("Done!");
     }
 
     private void deleteCourse(AppDAO appDAO) {

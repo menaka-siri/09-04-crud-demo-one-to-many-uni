@@ -115,4 +115,12 @@ public class AppDAOImpl implements AppDAO {
         entityManager.remove(tempCourse);
 
     }
+
+    @Override
+    @Transactional
+    public void saveCourse(Course theCourse) {
+        // this will save the associated reviews as well
+        entityManager.persist(theCourse);
+    }
+
 }
