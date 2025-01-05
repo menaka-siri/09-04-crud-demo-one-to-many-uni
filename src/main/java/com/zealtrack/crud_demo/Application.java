@@ -28,9 +28,20 @@ public class Application {
         return runner -> {
             System.out.println("Hi, Mom");
 
-            createCourseAndReviews(appDAO);
+//            createCourseAndReviews(appDAO);
+            retrieveCourseAndReviews(appDAO);
 
         };
+    }
+
+    private void retrieveCourseAndReviews(AppDAO appDAO) {
+        int theId = 10;
+        Course tempCourse = appDAO.findCourseAndReviewsBtCourseId(theId);
+
+        System.out.println(tempCourse);
+        System.out.println(tempCourse.getReviews());
+
+        System.out.println("Done!");
     }
 
     private void createCourseAndReviews(AppDAO appDAO) {
